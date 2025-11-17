@@ -4,11 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>МойСайт - Современный веб-сайт</title>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    </noscript>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+/* КРИТИЧЕСКИЕ СТИЛИ - только то, что видно выше скролла */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.hero {
+    padding: 120px 0 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    color: white;
+}
+
+/* Остальные стили загружаются асинхронно */
+</style>
+
+<!-- Асинхронная загрузка полного CSS -->
+<link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 </head>
 <body>
     <!-- Header -->
@@ -209,8 +253,18 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+// Минифицированная версия критических функций
+document.addEventListener('DOMContentLoaded',function(){
+    var e=document.getElementById('navToggle'),t=document.querySelector('.nav-menu');
+    e&&e.addEventListener('click',function(){
+        t.style.display='flex'===t.style.display?'none':'flex'
+    })
+});
+</script>
+    <script src="js/script.js" async></script>
 </body>
 
 </html>
+
 
