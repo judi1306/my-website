@@ -515,21 +515,4 @@ section {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
-
-}
-
-/* Гарантированная стабильность макета */
-.hero-visual {
-    min-height: 400px;
-    position: relative;
-}
-
-.floating-card {
-    width: 120px;
-    height: 100px;
-}
-
-.about-card,
-.service-card {
-    min-height: 200px;
 }
