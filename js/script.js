@@ -1,3 +1,12 @@
+// Обработка загрузки шрифтов
+WebFont.load({
+    google: {
+        families: ['Inter:300,400,500,600,700']
+    },
+    active: function() {
+        document.documentElement.classList.add('fonts-loaded');
+    }
+});
 // Основной JavaScript код
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -252,3 +261,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Добро пожаловать на наш сайт!');
     console.log('💡 Сайт создан с использованием современных веб-технологий');
 });
+
